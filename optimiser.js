@@ -23,11 +23,11 @@ const script = new Promise(async r => {
       if (metadata.width > metadata.height) {
         sharpObject = sharpObject.rotate(90);
       }
-      if (metadata.height > 3840) {
-        await sharpObject.clone()
-          .resize({ height: 3840 })
-          .toFile(`${folder}/${image}`);
-      }
+      // if (metadata.height > 3840) {
+      //   await sharpObject.clone()
+      //     .resize({ height: 3840 })
+      //     .toFile(`${folder}/${image}`);
+      // }
       await sharpObject.clone()
         .resize({ height: Math.round(metadata.height / 5) })
         .toFile(`${folder}/${image.replace(/\.[^\.]+$/, '_small$&')}`);
